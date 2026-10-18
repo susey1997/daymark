@@ -1,6 +1,6 @@
 # Daymark
 
-Daymark is a personal productivity dashboard for tasks, projects, habits, calendar events, reminders, and focused work sessions. It is a static web app with no account, subscription, build step, or external service requirement.
+Daymark is a personal productivity dashboard for tasks, projects, habits, calendar events, reminders, and focused work sessions. It works locally without an account; optional cloud sync uses Supabase Auth and a private database table.
 
 ## Run locally
 
@@ -32,4 +32,13 @@ The repository must be public for GitHub Pages on GitHub Free. This publishes th
 
 ## Storage and deployment
 
-Data is stored in the browser’s local storage. It remains available when you reopen Daymark in the same browser, but is not synced across devices and can be cleared by browser data cleanup. For a basic static deployment, publish this folder to any static web host. A future multi-device version would need a hosted database and sign-in.
+Without cloud sync, data stays in that browser on that device. When cloud sync is configured and you sign in, Daymark keeps a local copy and synchronizes your tracker data through your private account.
+
+## Sync across devices
+
+Cloud sync is connected for the GitHub Pages version. Open **Sync** in the top bar and create an account with an email address and password. If you receive a confirmation email, confirm your address, return to Daymark, and sign in. On each other device, open the same Daymark address and sign in with the same account.
+
+Daymark keeps a local copy and synchronizes projects, tasks, habits, events, and focus sessions with your private account. Row-level security restricts each account to its own data. The browser app uses only the public publishable key; database access is protected by sign-in and row-level security. Never put a service-role or secret key in the site.
+
+The Supabase project is on the free tier. Free projects may pause after a period of inactivity; opening Daymark may then take a little longer while the project wakes up. See the official [Supabase Auth](https://supabase.com/docs/guides/auth) and [Row Level Security](https://supabase.com/docs/guides/database/postgres/row-level-security) documentation.
+
