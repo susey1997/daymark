@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="sync.css" />
 </head>
 <body>
   <div class="app-shell">
@@ -27,12 +28,16 @@
       <div class="sidebar-bottom"><div class="quote-card"><span class="quote-mark">“</span><p>Small steps, every day, add up to remarkable things.</p><span class="quote-by">— James Clear</span></div><button class="profile-button"><span class="avatar">Y</span><span><b>Your space</b><small>Personal workspace</small></span><span class="more">···</span></button></div>
     </aside>
     <main class="main-area">
-      <header class="topbar"><button class="icon-button mobile-menu" id="menuToggle" aria-label="Toggle menu">☰</button><div class="breadcrumbs"><span>Workspace</span><span class="crumb-slash">/</span><b id="pageCrumb">Today</b></div><div class="top-actions"><button id="searchBtn" class="search-trigger"><span>⌕</span><span>Search anything</span><kbd>⌘ K</kbd></button><button class="icon-button notification-button" id="notificationBtn" title="Reminders">♧<i class="notification-dot"></i></button><button class="avatar top-avatar">Y</button></div></header>
+      <header class="topbar"><button class="icon-button mobile-menu" id="menuToggle" aria-label="Toggle menu">☰</button><div class="breadcrumbs"><span>Workspace</span><span class="crumb-slash">/</span><b id="pageCrumb">Today</b></div><div class="top-actions"><button id="searchBtn" class="search-trigger"><span>⌕</span><span>Search anything</span><kbd>⌘ K</kbd></button><button class="sync-trigger" id="syncBtn" title="Set up or manage sync"><span>☁</span><span id="syncStatus">Sync setup</span></button><button class="icon-button notification-button" id="notificationBtn" title="Reminders">♧<i class="notification-dot"></i></button><button class="avatar top-avatar">Y</button></div></header>
       <div class="page-content" id="pageContent"></div>
     </main>
   </div>
   <div class="toast" id="toast" role="status"></div>
   <div class="modal-backdrop" id="modalBackdrop"><section class="modal" id="modal" role="dialog" aria-modal="true"></section></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="sync-config.js"></script>
   <script src="app.js"></script>
+  <script src="sync.js"></script>
 </body>
 </html>
+
